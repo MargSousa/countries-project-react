@@ -1,0 +1,45 @@
+.Country-Info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.section {
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.country-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.native-title {
+  color: grey;
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.information {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 10px 10px 10px;
+}
+
+.flag {
+  display: flex;
+  margin: 20px 10px 10px 10px;
+}
+
+.flag-image {
+  width: 260px;
+  height: 180px;
+  border: solid 0.5px rgb(243, 243, 243);
+}

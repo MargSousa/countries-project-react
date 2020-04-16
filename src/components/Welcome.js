@@ -1,8 +1,11 @@
 import React from "react";
 import axios from "axios";
 import "./Welcome.css";
+import CountryInfo from "./CountryInfo";
 
-//1.	User enters the site with a welcome message saying "please select a country" with a dropdown of all the countries returned from the api.
+// 1.	User enters the site with a welcome message saying "please select a country" with a dropdown of all the countries returned from the api.
+// 2.	The user selects a country and all of the information that you want to display about that country is rendered.
+// 3.	The user can then change country as they wish and the page must update the content shown to be relevant to the country selected
 
 class Welcome extends React.Component {
   constructor(props) {
@@ -10,6 +13,7 @@ class Welcome extends React.Component {
     this.state = {
       countries: [],
       selectedCountry: "",
+      isCountrySelected: false,
     };
   }
 
@@ -19,7 +23,6 @@ class Welcome extends React.Component {
       .get(url)
       .then((response) => response.data)
       .then((getCountries) => {
-        //console.log("countries", getCountries);
         let nameCountries = getCountries.map((element) => element.name);
         this.setState({
           countries: nameCountries,
@@ -27,18 +30,31 @@ class Welcome extends React.Component {
       });
   };
 
+  // componentDidUpdate = () => {
+  //   console.log()
+  // };
+
   handleChange = (event) => {
+    event.preventDefault();
     let countryName = event.target.value;
+    let selected = true;
+
+    console.log("selected", countryName);
+
     this.setState({
       selectedCountry: countryName,
+      isCountrySelected: selected,
     });
+
+    console.log("state-country", this.state.selectedCountry);
   };
 
   render() {
     return (
       <div className="Welcome">
-        <h2 className="title">Explore the world</h2>
-        <h4>Choose a country to get all the details!</h4>
+        <h2 className="title main-title">Explore the world</h2>
+        <h5 className="title">Choose a country to get all the details!</h5>
+
         <select
           className="select-form"
           name="country"
@@ -52,7 +68,12 @@ class Welcome extends React.Component {
             </option>
           ))}
         </select>
-        <p>Country selected: {this.state.selectedCountry}</p>
+
+        {this.state.isCountrySelected && (
+          <div>
+            <CountryInfo countryName={this.state.selectedCountry} />
+          </div>
+        )}
       </div>
     );
   }
