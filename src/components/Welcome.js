@@ -24,14 +24,11 @@ class Welcome extends React.Component {
         this.setState({
           countries: nameCountries,
         });
-        //console.log("countries", this.state.countries);
       });
   };
 
   handleChange = (event) => {
     let countryName = event.target.value;
-    console.log(countryName);
-
     this.setState({
       selectedCountry: countryName,
     });
@@ -40,9 +37,10 @@ class Welcome extends React.Component {
   render() {
     return (
       <div className="Welcome">
-        <h1>Welcome</h1>
-        <h3>Choose a country to get all the details!</h3>
+        <h2 className="title">Explore the world</h2>
+        <h4>Choose a country to get all the details!</h4>
         <select
+          className="select-form"
           name="country"
           value={this.state.selectedCountry}
           onChange={this.handleChange}
@@ -50,8 +48,7 @@ class Welcome extends React.Component {
           <option>Please select a country....</option>
           {this.state.countries.map((country) => (
             <option key={country} value={country}>
-              {" "}
-              {country}{" "}
+              {country}
             </option>
           ))}
         </select>
