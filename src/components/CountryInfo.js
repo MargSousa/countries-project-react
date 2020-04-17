@@ -11,10 +11,26 @@ class CountryInfo extends React.Component {
     };
   }
 
+  componentDidUpdate = (prevProps) => {
+    if (this.props.countryInformation !== prevProps.countryInformation) {
+      let newData = this.props.countryInformation;
+      this.setState({
+        countryInfo: newData,
+        countryCurrencies: newData.currencies[0],
+        countryLanguages: newData.languages[0],
+      });
+    }
+  };
+
   render() {
     let country = this.state.countryInfo;
     let currency = this.state.countryCurrencies;
     let languages = this.state.countryLanguages;
+    let population = this.state.countryInfo.population;
+
+    population = population
+      .toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 
     return (
       <div className="Country-Info">
@@ -23,7 +39,7 @@ class CountryInfo extends React.Component {
             <div className="country-title">{country.name}</div>
             <div className="native-title">{country.subregion}</div>
             <div>Capital: {country.capital}</div>
-            <div>Population: {country.population}</div>
+            <div>Population: {population} hab.</div>
             <div>
               Currency: {currency.name} ({currency.symbol})
             </div>
