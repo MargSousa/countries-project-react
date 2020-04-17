@@ -6,12 +6,16 @@
 }
 
 .section {
-  width: 500px;
+  width: 350px;
+  height: 450px;
   display: flex;
-  flex-wrap: wrap-reverse;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
   align-items: center;
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
 }
 
 .country-title {
@@ -30,7 +34,7 @@
   text-align: left;
   display: flex;
   flex-direction: column;
-  margin: 20px 10px 10px 10px;
+  margin: 0px 10px 10px 10px;
 }
 
 .flag {
@@ -41,5 +45,4 @@
 .flag-image {
   width: 260px;
   height: 180px;
-  border: solid 0.5px rgb(243, 243, 243);
 }
