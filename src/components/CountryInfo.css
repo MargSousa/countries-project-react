@@ -1,0 +1,48 @@
+.Country-Info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.section {
+  width: 350px;
+  height: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+}
+
+.country-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.native-title {
+  color: grey;
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.information {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px 10px 10px;
+}
+
+.flag {
+  display: flex;
+  margin: 20px 10px 10px 10px;
+}
+
+.flag-image {
+  width: 260px;
+  height: 180px;
+}

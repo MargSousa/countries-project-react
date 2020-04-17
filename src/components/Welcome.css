@@ -5,10 +5,16 @@
 }
 
 .title {
-  color: #952150;
-  margin: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.main-title {
+  margin: 40px;
+  font-weight: bold;
 }
 
 .select-form {
-  margin: 30px 0px;
+  margin: 10px 0px 20px 0px;
+  width: 280px;
+  height: 30px;
 }
