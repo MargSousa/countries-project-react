@@ -7,8 +7,6 @@ import CountryInfo from './CountryInfo';
 // 2.	The user selects a country and all of the information that you want to display about that country is rendered.
 // 3.	The user can then change country as they wish and the page must update the content shown to be relevant to the country selected
 
-let url = `https://restcountries.eu/rest/v2/all`;
-
 class Welcome extends React.Component {
   constructor(props) {
     super(props);
@@ -20,37 +18,35 @@ class Welcome extends React.Component {
     };
   }
 
-  componentDidMount = () => {
+  getCountries = () => {
+    let url = `https://restcountries.eu/rest/v2/all`;
     axios
       .get(url)
       .then((response) => response.data)
       .then((getCountries) => {
-        let nameCountries = getCountries.map((element) => element.name);
+        let getCountriesData = getCountries.map((element) => element);
         this.setState({
-          countries: nameCountries,
+          countries: getCountriesData,
         });
       });
+  };
+
+  componentDidMount = () => {
+    this.getCountries();
   };
 
   handleChange = (event) => {
     event.preventDefault();
     let countryName = event.target.value;
     let selected = true;
-    let countryData = [];
-
-    axios
-      .get(url)
-      .then((response) => response.data)
-      .then((getCountries) => {
-        countryData = getCountries.filter(
-          (element) => element.name === countryName,
-        );
-        this.setState({
-          countryInformation: countryData[0],
-          selectedCountry: countryName,
-          isCountrySelected: selected,
-        });
-      });
+    let countryData = this.state.countries.filter(
+      (element) => element.name === countryName,
+    );
+    this.setState({
+      countryInformation: countryData[0],
+      selectedCountry: countryName,
+      isCountrySelected: selected,
+    });
   };
 
   render() {
@@ -67,13 +63,12 @@ class Welcome extends React.Component {
           >
             <option>Please select a country....</option>
             {this.state.countries.map((country) => (
-              <option key={country} value={country}>
-                {country}
+              <option key={country.name} value={country.name}>
+                {country.name}
               </option>
             ))}
           </select>
         </form>
-
         {this.state.isCountrySelected && (
           <div>
             <CountryInfo countryInformation={this.state.countryInformation} />
