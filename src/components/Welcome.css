@@ -1,16 +1,19 @@
 .Welcome {
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   color: #1a2637;
 }
 
 .title {
   font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 }
 
 .main-title {
-  margin: 40px;
+  font-family: 'Montserrat', sans-serif;
+  margin: 30px 0px 30px 0px;
   font-weight: bold;
+  font-size: 24px;
 }
 
 .select-form {
