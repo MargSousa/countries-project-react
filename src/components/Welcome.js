@@ -52,7 +52,7 @@ class Welcome extends React.Component {
   render() {
     return (
       <div className="Welcome">
-        <h2 className="title main-title">Explore the world</h2>
+        <h2 className="main-title">Explore the world</h2>
         <h5 className="title">Choose a country to get all the details!</h5>
         <form>
           <select
