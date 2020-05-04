@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Welcome.css';
 import CountryInfo from './CountryInfo';
+import ShareInfo from './ShareInfo';
 
 // 1.	User enters the site with a welcome message saying "please select a country" with a dropdown of all the countries returned from the api.
 // 2.	The user selects a country and all of the information that you want to display about that country is rendered.
@@ -60,6 +61,7 @@ function Welcome() {
       {isCountrySelected && (
         <div>
           <CountryInfo countryInformation={selectedCountryInfo} />
+          <ShareInfo />
         </div>
       )}
     </div>
