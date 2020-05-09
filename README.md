@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deployment
+
+- Link to the website deployed on Netlify: [https://reverent-newton-015494.netlify.app/](https://reverent-newton-015494.netlify.app/)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -58,10 +63,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ma
 ### Advanced Configuration
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
 ### `yarn build` fails to minify
 
